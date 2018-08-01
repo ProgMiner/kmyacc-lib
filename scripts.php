@@ -194,13 +194,13 @@ function regen_parser($dir = 'examples', $debug = 'false') {
         }
 
         $options = ($debug === 'true' or $debug === true)?
-            '-t -l': '';
+            '-t': '';
 
         $name = explode(DIRECTORY_SEPARATOR, $matches[1]);
         $name = $name[count($name) - 1];
 
         $model = $matches[1].".php.tpl";
-        _system("kmyacc/kmyacc $options -p $name -m $model $file");
+        _system("kmyacc/kmyacc $options -l -p $name -m $model $file");
     }
 }
 

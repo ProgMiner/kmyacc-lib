@@ -164,7 +164,7 @@ abstract class AbstractParser {
 
                     $this->YYTRACE_ACCEPT();
 
-                    return $yylval;
+                    return $this->yyval;
                 } else if ($yyn != static::YYUNEXPECTED) {
                     /* reduce */
                     $yyl = $this->yylen[$yyn];
@@ -216,7 +216,7 @@ abstract class AbstractParser {
                             ))
                         ) {
                             if ($yysp <= 0) {
-                                return $yylval;
+                                return $this->yyval;
                             }
 
                             $yystate = $yysstk[--$yysp];
@@ -235,7 +235,7 @@ abstract class AbstractParser {
                         $this->YYTRACE_DISCARD($yychar);
 
                         if ($yychar == 0) {
-                            return $yylval;
+                            return $this->yyval;
                         }
 
                         $yychar = -1;
