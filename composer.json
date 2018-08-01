@@ -29,8 +29,6 @@
 
         "regen-lexer": "@php scripts.php regen-lexer",
         "regen-parser": "@php scripts.php regen-parser",
-        "regen-all": "@php scripts.php regen-all",
-
-        "pre-package-install": "@install-deps"
+        "regen-all": "@php scripts.php regen-all"
     }
 }
