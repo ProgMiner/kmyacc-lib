@@ -1,0 +1,36 @@
+{
+    "name": "progminer/kmyacc-lib",
+    "description": "Library for kmyacc generated PHP files",
+    "type": "library",
+    "license": "MIT",
+    "authors": [
+        {
+            "name": "Eridan Domoratskiy",
+            "email": "eridan200@mail.ru"
+        }
+    ],
+    "minimum-stability": "dev",
+    "prefer-stable": true,
+    "require": {
+        "progminer/jlex-php-lib": "master-dev"
+    },
+    "autoload": {
+        "psr-4": {
+            "Kmyacc\\": "lib"
+        }
+    },
+    "config": {
+        "sort-packages": true,
+        "optimize-autoloader": true
+    },
+    "scripts": {
+        "install-deps": "@php scripts.php install-deps",
+        "clean-deps": "@php scripts.php clean-deps",
+
+        "regen-lexer": "@php scripts.php regen-lexer",
+        "regen-parser": "@php scripts.php regen-parser",
+        "regen-all": "@php scripts.php regen-all",
+
+        "pre-package-install": "@install-deps"
+    }
+}

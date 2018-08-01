@@ -1,0 +1,36 @@
+// vim: syntax=yacc noexpandtab
+
+%token NUMBER
+
+%left '+' '-'
+%left '*' '/'
+
+%%
+
+start
+	: lines
+	;
+
+lines
+	: /* empty */
+	| lines line
+	;
+
+line
+	: expr '\n'		{ echo $1."\n"; }
+	| '\n'			{ echo "(empty line ignored)\n"; }
+	| error '\n'
+	;
+
+expr
+	: expr '+' expr	{ $$ = $1 + $3; }
+	| expr '-' expr	{ $$ = $1 - $3; }
+	| expr '*' expr	{ $$ = $1 * $3; }
+	| expr '/' expr	{ $$ = $1 / $3; }
+	| '(' expr ')'	{ $$ = $2; }
+	| NUMBER		{ $$ = $1; }
+	;
+
+%%
+
+require_once 'calc.lex.php';
