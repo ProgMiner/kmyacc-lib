@@ -216,7 +216,7 @@ abstract class AbstractParser {
                             ))
                         ) {
                             if ($yysp <= 0) {
-                                return $this->yyval;
+                                return null;
                             }
 
                             $yystate = $yysstk[--$yysp];
@@ -235,7 +235,7 @@ abstract class AbstractParser {
                         $this->YYTRACE_DISCARD($yychar);
 
                         if ($yychar == 0) {
-                            return $this->yyval;
+                            return null;
                         }
 
                         $yychar = -1;
