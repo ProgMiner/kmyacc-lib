@@ -42,14 +42,14 @@ class calc extends \Kmyacc\AbstractParser {
     const YYTERMS = 10;
     const YYNONTERMS = 5;
 
-    const YYLAST = 19;
+    const YYLAST = 15;
 
     const YY2TBLSTATE = 4;
 
-    const YYGLAST = 5;
+    const YYGLAST = 6;
 
-    const YYSTATES = 21;
-    const YYNLSTATES = 13;
+    const YYSTATES = 20;
+    const YYNLSTATES = 12;
     const YYINTERRTOK = 1;
     const YYUNEXPECTED = 32767;
     const YYDEFAULT = -32766;
@@ -58,12 +58,12 @@ class calc extends \Kmyacc\AbstractParser {
 
     protected $yytranslate = [
             0,   10,   10,   10,   10,   10,   10,   10,   10,   10,
-            7,   10,   10,   10,   10,   10,   10,   10,   10,   10,
+           10,   10,   10,   10,   10,   10,   10,   10,   10,   10,
            10,   10,   10,   10,   10,   10,   10,   10,   10,   10,
            10,   10,   10,   10,   10,   10,   10,   10,   10,   10,
             8,    9,    5,    3,   10,    4,   10,    6,   10,   10,
            10,   10,   10,   10,   10,   10,   10,   10,   10,   10,
-           10,   10,   10,   10,   10,   10,   10,   10,   10,   10,
+           10,    7,   10,   10,   10,   10,   10,   10,   10,   10,
            10,   10,   10,   10,   10,   10,   10,   10,   10,   10,
            10,   10,   10,   10,   10,   10,   10,   10,   10,   10,
            10,   10,   10,   10,   10,   10,   10,   10,   10,   10,
@@ -86,39 +86,39 @@ class calc extends \Kmyacc\AbstractParser {
     ];
 
     protected $yyaction = [
-           19,   -1,   12,    7,    8,    5,    6,    0,   18,    5,
-            6,   24,   25,   17,    0,    0,    0,    0,    4
+            5,    6,   -4,   18,    5,    6,   23,   24,   17,   -1,
+           18,    7,    8,    4,    0
     ];
 
     protected $yycheck = [
-            7,    0,    1,    5,    6,    3,    4,    0,    7,    3,
-            4,    9,    2,    7,   -1,   -1,   -1,   -1,    8
+            3,    4,    0,    1,    3,    4,    9,    2,    7,    0,
+            1,    5,    6,    8,    0
     ];
 
     protected $yybase = [
-            0,    1,    6,    2,   10,   10,   10,   10,   10,   -2,
-           -2,    7,   -7,    0,   10,   -2,   -2
+            2,    1,   -3,    9,    5,    5,    5,    5,    5,    6,
+            6,   14,    5,    6,    6,    5
     ];
 
     protected $yydefault = [
-            2,32767,32767,32767,32767,32767,32767,32767,32767,    7,
-            8,32767,32767
+        32767,32767,32767,32767,32767,32767,32767,32767,32767,    7,
+            8,32767
     ];
 
     protected $yygoto = [
-            3,    9,   10,   22,   23
+            2,    9,   10,   21,   22,   15
     ];
 
     protected $yygcheck = [
-            4,    4,    4,    4,    4
+            4,    4,    4,    4,    4,    3
     ];
 
     protected $yygbase = [
-            0,    0,    0,    0,   -4
+            0,    0,    0,    2,   -4
     ];
 
     protected $yygdefault = [
-        -32768,   11,    1,   16,    2
+        -32768,   11,    3,   14,    1
     ];
 
     protected $yylhs = [
@@ -127,7 +127,7 @@ class calc extends \Kmyacc\AbstractParser {
     ];
 
     protected $yylen = [
-            1,    1,    0,    2,    2,    1,    2,    3,    3,    3,
+            1,    1,    1,    2,    0,    2,    1,    3,    3,    3,
             3,    3,    1
     ];
 
@@ -150,31 +150,31 @@ class calc extends \Kmyacc\AbstractParser {
                 $this->yyval = $this->yyastk[$yysp] ?? '';
             },
             4 => function ($yysp) {
-                 echo ($this->yyastk[$yysp - (2 - 1)] ?? '')."\n"; 
+                 echo "(empty line ignored)\n"; 
             },
             5 => function ($yysp) {
-                 echo "(empty line ignored)\n"; 
+                 echo $this->yyastk[$yysp - (2 - 1)]."\n"; 
             },
             6 => function ($yysp) {
                 $this->yyval = $this->yyastk[$yysp] ?? '';
             },
             7 => function ($yysp) {
-                 $this->yyval = ($this->yyastk[$yysp - (3 - 1)] ?? '') + ($this->yyastk[$yysp - (3 - 3)] ?? ''); 
+                 $this->yyval = $this->yyastk[$yysp - (3 - 1)] + $this->yyastk[$yysp - (3 - 3)]; 
             },
             8 => function ($yysp) {
-                 $this->yyval = ($this->yyastk[$yysp - (3 - 1)] ?? '') - ($this->yyastk[$yysp - (3 - 3)] ?? ''); 
+                 $this->yyval = $this->yyastk[$yysp - (3 - 1)] - $this->yyastk[$yysp - (3 - 3)]; 
             },
             9 => function ($yysp) {
-                 $this->yyval = ($this->yyastk[$yysp - (3 - 1)] ?? '') * ($this->yyastk[$yysp - (3 - 3)] ?? ''); 
+                 $this->yyval = $this->yyastk[$yysp - (3 - 1)] * $this->yyastk[$yysp - (3 - 3)]; 
             },
             10 => function ($yysp) {
-                 $this->yyval = ($this->yyastk[$yysp - (3 - 1)] ?? '') / ($this->yyastk[$yysp - (3 - 3)] ?? ''); 
+                 $this->yyval = $this->yyastk[$yysp - (3 - 1)] / $this->yyastk[$yysp - (3 - 3)]; 
             },
             11 => function ($yysp) {
-                 $this->yyval = ($this->yyastk[$yysp - (3 - 2)] ?? ''); 
+                 $this->yyval = $this->yyastk[$yysp - (3 - 2)]; 
             },
             12 => function ($yysp) {
-                 $this->yyval = ($this->yyastk[$yysp - (1 - 1)] ?? ''); 
+                 $this->yyval = $this->yyastk[$yysp - (1 - 1)]; 
             },
         ];
     }

@@ -12,8 +12,6 @@ WHITE_SPACE=([\ \n\r\t\f])+
 
 %%
 
-<YYINITIAL>	\n	{ return $this->createToken(); }
-
 <YYINITIAL>	"//".*			{}
 <YYINITIAL>	{WHITE_SPACE}	{}
 

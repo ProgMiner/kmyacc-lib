@@ -16,14 +16,14 @@ start
 	;
 
 lines
-	: /* empty */
+	: line
 	| lines line
 	;
 
 line
-	: expr '\n'		{ echo $1."\n"; }
-	| '\n'			{ echo "(empty line ignored)\n"; }
-	| error '\n'
+	:			{ echo "(empty line ignored)\n"; }
+	| expr '='	{ echo $1."\n"; }
+	| error
 	;
 
 expr
