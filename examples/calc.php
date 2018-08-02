@@ -24,6 +24,7 @@ LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
 OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
 SOFTWARE. */
 
+require_once 'calc.lex.php';
 
 /**
  * This is an automatically GENERATED file, which should not be manually edited.
@@ -52,7 +53,6 @@ class calc extends \Kmyacc\AbstractParser {
     const YYINTERRTOK = 1;
     const YYUNEXPECTED = 32767;
     const YYDEFAULT = -32766;
-
     const YYERRTOK = 256;
     const NUMBER = 257;
 
@@ -135,7 +135,6 @@ class calc extends \Kmyacc\AbstractParser {
         parent::__construct($lexer);
     }
 
-
     protected function initReduceCallbacks() {
         $this->reduceCallbacks = [
             0 => function ($yysp) {
@@ -180,6 +179,3 @@ class calc extends \Kmyacc\AbstractParser {
         ];
     }
 }
-
-
-require_once 'calc.lex.php';

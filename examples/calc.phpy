@@ -1,5 +1,9 @@
 // vim: syntax=yacc noexpandtab
 
+%{
+require_once 'calc.lex.php';
+%}
+
 %token NUMBER
 
 %left '+' '-'
@@ -32,5 +36,3 @@ expr
 	;
 
 %%
-
-require_once 'calc.lex.php';

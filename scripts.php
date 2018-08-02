@@ -43,6 +43,10 @@ try {
 }
 
 function _system($cmd, $doOutput = true) {
+    if ($doOutput) {
+        echo ">>> $cmd\n";
+    }
+
     exec($cmd, $output, $ret);
 
     if ($ret != 0) {
@@ -50,8 +54,6 @@ function _system($cmd, $doOutput = true) {
     }
 
     if ($doOutput) {
-        echo ">>> $cmd\n";
-
         foreach ($output as $line) {
             echo "> $line\n";
         }
