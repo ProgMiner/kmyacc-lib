@@ -58,7 +58,6 @@ class #(-p) extends \Kmyacc\AbstractParser {
     const YYINTERRTOK = #(YYINTERRTOK);
     const YYUNEXPECTED = #(YYUNEXPECTED);
     const YYDEFAULT = #(YYDEFAULT);
-
 #tokenval
     const %s = %n;
 #endtokenval
@@ -122,7 +121,6 @@ class #(-p) extends \Kmyacc\AbstractParser {
         ];
 #endif
     }
-
 #if -t
     public function yytokname($n) {
         switch ($n) {
@@ -147,5 +145,4 @@ class #(-p) extends \Kmyacc\AbstractParser {
         ];
     }
 }
-
 #tailcode;
