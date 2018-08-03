@@ -196,7 +196,7 @@ abstract class AbstractParser {
                     /* error */
                     switch ($yyerrflag) {
                     case 0:
-                        new \Exception('yyerror("syntax error")');
+                        $this->yyerror('syntax error');
                     case 1:
                     case 2:
                         $yyerrflag = 3;
